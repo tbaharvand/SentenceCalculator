@@ -9,9 +9,8 @@ public class SentenceCalculator {
             //3-get ascii code of each word
             char c = s.charAt(i);
             int ascii = c;
-            //4-print ascii code
-            System.out.println(c + "="+ ascii);
-            //5-ascii code for words that in range of A-Z
+
+            //4-ascii code for words that in range of A-Z
             if (ascii>=65 && ascii <= 90){
                     Map<Integer , Integer > letterMap = new HashMap<>();
                     int score = 2;
@@ -19,15 +18,10 @@ public class SentenceCalculator {
                         letterMap.put(asciiForCapitalAtoZ,score);
                         score = score + 2;
                     }
-
                 int total = letterMap.get(ascii);
-                System.out.println("score is "+ total );
                 sum += total;
-                System.out.println("sum is " + sum);
-
-
             }
-            //5-ascii code for words that in range of a-z
+            //4-ascii code for words that in range of a-z
             else if (ascii>=97 && ascii<=122){
 
                 Map<Integer , Integer > letterMap = new HashMap<>();
@@ -36,41 +30,26 @@ public class SentenceCalculator {
                     letterMap.put(asciiForSmallAtoZ,score);
                     score = score + 1 ;
                 }
-
                 int total = letterMap.get(ascii);
-                System.out.println("score is "+ total );
                 sum += total;
-                System.out.println("sum is " + sum);
-
             }
-            //5-ascii code for words that in range of 0-9
+            //4-ascii code for words that in range of 0-9
             else if (ascii>=48 && ascii<=57){
-
                 Map<Integer , Integer > letterMap = new HashMap<>();
                 int score = 0;
                 for (int asciiForNumbers0to9 = 48 ; asciiForNumbers0to9 <= 57 ; asciiForNumbers0to9++){
                     letterMap.put(asciiForNumbers0to9,score);
                     score +=1;
-
                 }
                 int total = letterMap.get(ascii);
-                System.out.println("score is "+ total );
                 sum += total;
-                System.out.println("sum is " + sum);
-
             }
-            //6-if in string there is other characters (not A-Z,a-z,0-9) calculate 0 for them
-            else if(!(ascii>=48 && ascii<=57 || ascii>=65 && ascii <= 90 || ascii>=97 && ascii<=122)){
-                System.out.println("0");
-            }
-
         }
         return sum;
-
     }
 
     public static void main(String[] args) {
         //1-write a sentence for calculate its score
-            lettersToNumbers("this is 6kyu level :)");
+            System.out.println(lettersToNumbers("12345 12345"));
     }
 }
